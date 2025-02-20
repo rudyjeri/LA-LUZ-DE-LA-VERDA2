@@ -10,6 +10,10 @@ body {
     
 }
 /* Hero container */
+:root {
+    --padding-container: 20px;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -21,55 +25,81 @@ body {
 
 .hero__container {
     max-width: 800px;
-    --padding-container: 0;
-    display: flex; /* Cambiado de grid a flexbox para mayor control */
+    display: flex;
     flex-direction: column;
-    align-items: center; /* Centra título y párrafo horizontalmente */
-    justify-content: center; /* Centra título y párrafo verticalmente */
-    height: 60vh; /* Hace que ocupe toda la altura de la ventana */
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
     text-align: center;
-    gap: 2em; /* Espaciado entre título y párrafo */
-    padding-bottom: 0; /* Elimina relleno innecesario */
+    gap: 1.5em;
+    padding: 0 20px;
 }
 
+/* Título responsive */
 .hero__title {
-    font-size: 3rem;
-    margin: 0; /* Elimina márgenes adicionales */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra adicional si se necesita */
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+/* Párrafo responsive */
 .hero__paragraph {
-    font-size: 1.3rem; /* Texto más grande para el párrafo */
-    font-family: Georgia; /* Fuente clara y profesional */
-    margin: 0; /* Elimina márgenes innecesarios */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra ligera */
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    font-family: Georgia, serif;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     text-align: center;
 }
 
-
+/* Botón responsivo */
 .cta {
     display: inline-block;
     background-color: #2e72ef;
-    justify-self: center;
     color: #fff;
     text-decoration: none;
     padding: 13px 30px;
     border-radius: 32px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    transition: background 0.3s ease-in-out;
 }
-.hero-inicio::before {   
+
+.cta:hover {
+    background-color: #1d5ed4;
+}
+
+.hero-inicio::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70%; /* Ocupa el 70% de la pantalla */
+    height: 70%; /* Cubre toda la sección */
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), 
         url('../images/leer-la-biblia.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
+/* Media Queries para hacerlo más responsive */
+@media (max-width: 768px) {
+    .hero-inicio {
+        min-height: 50vh; /* Reduce la altura en tablets */
+        padding: 15px;
+    }
+
+    .hero-inicio::before {
+        height: 50%; /* Asegura que la imagen se mantenga bien */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-inicio {
+        min-height: 40vh; /* Reduce aún más en móviles */
+        padding: 10px;
+    }
+}
 /* Estilo general de la nueva sección de los nuevos artículos  */
 
 .trending-section {
@@ -635,8 +665,8 @@ body {
 }
 
 .nav__logo-img {
-    height: 90px; /* Ajusta el tamaño de la imagen */
-    margin-right: 15px; /* Espacio entre la imagen y el título */
+    height: 70px; /* Ajusta el tamaño de la imagen */
+    margin-right: 13px; /* Espacio entre la imagen y el título */
 }
 
 .nav__title {
@@ -1074,7 +1104,7 @@ footer {
 
 @media (max-width:600px){
     .hero__title{
-        font-size: 3rem;
+        font-size: 1.9rem;
     }
 
     .hero__paragraph{
