@@ -665,7 +665,7 @@ body {
 }
 
 .nav__logo-img {
-    height: 70px; /* Ajusta el tamaño de la imagen */
+    height: 60px; /* Ajusta el tamaño de la imagen */
     margin-right: 13px; /* Espacio entre la imagen y el título */
 }
 
